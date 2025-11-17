@@ -4,14 +4,14 @@ class Config:
     """Model configuration class."""
     
     # Model settings
-    MODEL_NAME = "distilbert-base-uncased"
+    MODEL_NAME = "roberta-large"
     NUM_LABELS = 6
     MAX_LENGTH = 128
     
     # Training settings
-    BATCH_SIZE = 16
-    LEARNING_RATE = 3e-5
-    EPOCHS = 3
+    BATCH_SIZE = 8
+    LEARNING_RATE = 2e-5
+    EPOCHS = 10
     
     # Data settings
     DATA_PATH = "data/emotion.csv"
