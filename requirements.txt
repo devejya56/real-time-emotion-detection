@@ -19,3 +19,13 @@ tqdm>=4.65.0
 
 # Additional TensorFlow utilities
 tf-keras>=2.14.0
+
+# Model Optimization Libraries
+nlpaug>=1.1.11
+tensorflow-addons>=0.23.0
+
+# Translation for Data Augmentation
+googletrans==4.0.0-rc1
+
+# Experiment Tracking
+wandb>=0.16.0
