@@ -1,5 +1,5 @@
-# Core ML/DL Libraries
-torch>=2.0.0
+# Core ML/DL Libraries - TensorFlow Backend
+tensorflow>=2.14.0
 transformers>=4.35.0
 
 # Data Processing
@@ -17,5 +17,5 @@ streamlit>=1.28.0
 # Progress Bars
 tqdm>=4.65.0
 
-# Utilities
-accelerate>=0.25.0
+# Additional TensorFlow utilities
+tf-keras>=2.14.0
