@@ -15,6 +15,7 @@ from sklearn.metrics import (
 from sklearn.model_selection import StratifiedKFold
 import logging
 import json
+from visualizations import ResearchVisualizer
 
 # Import local modules
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -327,6 +328,21 @@ def main():
     for emotion, metrics in results['per_class_metrics'].items():
         print(f"  {emotion:10s} - P: {metrics['precision']:.3f}  R: {metrics['recall']:.3f}  F1: {metrics['f1_score']:.3f}")
     print("="*60)
+
+    # Generate visualizations for research figures
+    logger.info("\nGenerating research figures...")
+    visualizer = ResearchVisualizer(output_dir='figures')
+    
+    # Get predictions for sample predictions figure
+    predicted_labels = evaluator.predict(test_texts)
+    
+    # Generate sample predictions figure
+    # Note: Replace confidences with actual probabilities if available
+    confidences = [0.95] * len(predicted_labels)  # Placeholder
+    visualizer.plot_sample_predictions(
+        test_texts, predicted_labels, confidences,
+        test_labels, config.EMOTION_LABELS, n_samples=8
+    )
 
 
 if __name__ == "__main__":
