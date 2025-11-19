@@ -294,6 +294,27 @@ class AdvancedTrainer:
         return history
 
 
+
+        # Save training history and generate visualization
+        logger.info("Saving training history and generating plots...")
+        import json
+        history_dict = {
+            'accuracy': history.history['accuracy'],
+            'val_accuracy': history.history['val_accuracy'],
+            'loss': history.history['loss'],
+            'val_loss': history.history['val_loss']
+        }
+        
+        # Save history to JSON
+        os.makedirs('training_logs', exist_ok=True)
+        with open('training_logs/history.json', 'w') as f:
+            json.dump(history_dict, f, indent=2)
+        
+        # Generate training history plot
+        from visualizations import ResearchVisualizer
+        visualizer = ResearchVisualizer(output_dir='figures')
+        visualizer.plot_training_history(history)
+        logger.info("Training history saved and plotted successfully")
 def main():
     """Main training function."""
     # Load configuration
